@@ -12,6 +12,7 @@ module.exports = {
     },
 
     async create(req, res){ //adicionar à sacola
+
         const {id_user, id_produto} = req.body;
         await connection('sacolas').insert({
             id_user, id_produto

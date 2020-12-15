@@ -6,6 +6,7 @@ const routes = require('../routes');
 module.exports = {
     async list(req, res){
         const produtos = await connection('produtos').select('*')
+        res.header("Access-Control-Allow-Origin", "*")
         return res.json(produtos)
     },
 
@@ -27,19 +28,19 @@ module.exports = {
     },
 
     async create(req, res){
-        const {name, img, descricao, valor, tipo_flor, tipo_produto} = req.body;
+        const {name, img, imgD, descricao, valor, tipo_flor, tipo_produto} = req.body;
         const id = crypto.randomBytes(4).toString('HEX')
         await connection('produtos').insert({
-            id, name, img, descricao, valor, tipo_flor, tipo_produto
+            id, name, img, imgD, descricao, valor, tipo_flor, tipo_produto
         })
         return res.status(204).send()
     },
 
     async update(req, res){
         const {id} = req.params
-        const {name, img, descricao, valor, tipo_flor, tipo_produto} = req.body;
+        const {name, img, imgD, descricao, valor, tipo_flor, tipo_produto} = req.body;
         await connection('produtos').where('id',id).update({
-            name, img, descricao, valor, tipo_flor, tipo_produto
+            name, img, imgD, descricao, valor, tipo_flor, tipo_produto
         })
         return res.status(204).send()
     },
