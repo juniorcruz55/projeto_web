@@ -56,7 +56,7 @@ export default function Header(props){
                         </Col>
                     </Row>
                 ))}
-                <p> <Button variant="secondary" onClick={remove_all} size="sm">Limpar Cesta</Button> <Button href="/finalizar-pedido" variant="secondary" size="sm"> Finalizar </Button> </p>
+                <p> <Button variant="secondary" onClick={remove_all} size="sm">Limpar Cesta</Button> <Button href="/finalizar-pedido" variant="secondary" size="sm" id="btn-finalizar"> Finalizar </Button> </p>
                     
                
           </Popover.Content>

@@ -52,15 +52,14 @@ export default function Header(props){
                 }
             })
             if(jaTem == "true"){
-                
                 setPedido(response.data)
             } else {
                 api.post("/pedidos", pedido).then(response =>{
                     console.log(response)
+                    window.location.reload();
                 })
-                console.log('novo')
             }
-            
+            console.log(pedido) 
         })
         
     }, [])
@@ -103,6 +102,7 @@ export default function Header(props){
                 setPedido(response.data)
                 const realizar = "true"
                 api.put(`/pedidos/${pedido[0].id}`, {realizar})
+                console.log(pedido[0].id)
                 itens.forEach(function(item){
                     item.id_pedido = pedido[0].id
                     api.post(`/pedidos/${item.id_pedido}`, item)
