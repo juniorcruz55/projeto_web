@@ -19,7 +19,6 @@ export default function Home(){
         api.post('sacolas', {"id_user": "57333a64", "id_produto":id_produto})
     }
 
-    console.log(produtos)
     return(
         <Container fluid>
             <Row>

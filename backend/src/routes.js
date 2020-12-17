@@ -31,11 +31,14 @@ routes.delete('/sacolas/:id_user/:id_produto', SacolaController.remove_one)
 routes.delete('/sacolas/:id_user', SacolaController.remove_all)
 
 //Rotas Pedidos
+routes.get('/pedidos', PedidoController.list)
+routes.get('/pedidos_itens', PedidoController.list_itens)
 routes.get('/pedidos/:id', PedidoController.show)
 routes.post('/pedidos/', PedidoController.create)
-routes.post('/pedidos/item/', PedidoController.create_item)
+routes.post('/pedidos/:id_pedido/', PedidoController.create_item)
 routes.put('/pedidos/:id', PedidoController.update)
 routes.put('/pedidos/item/:id_pedido/:id_produto/:quantidade', PedidoController.update_item)
+routes.delete('/pedidos', PedidoController.delete_all)
 routes.delete('/pedidos/:id', PedidoController.delete)
 routes.delete('/pedidos/item/:id_pedido/:id_produto', PedidoController.delete_item)
 
